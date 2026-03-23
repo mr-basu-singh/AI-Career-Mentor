@@ -13,3 +13,6 @@ sentence-transformers
 langchain-groq
 PyPDF2
 langchain-tavily
+langchain-text-splitters
+
+

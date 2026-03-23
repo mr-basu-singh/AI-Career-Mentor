@@ -1,5 +1,4 @@
 from langchain_groq import ChatGroq
-from langchain_core.prompts import ChatPromptTemplate
 
 llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0.7)
 
@@ -10,33 +9,26 @@ def final_agent(user_query, plan, research):
         for item in research:
             formatted_research += f"\n- {item.get('title')}: {item.get('content')[:150]}...\n"
 
-    prompt = ChatPromptTemplate.from_messages([
-        ("system", "You are a smart career advisor for Indian students."),
-        ("human", """
-User Query: {user_query}
+    prompt = f"""
+You are a smart career advisor for students in India.
+
+User Query:
+{user_query}
 
 Career Plan:
 {plan}
 
 Market Research:
-{research}
+{formatted_research}
 
 Give:
-1. Personalized Smart Advice
-2. Industry Insights
-3. Final Suggestion
+- Personalized career advice
+- Practical steps
+- Industry-relevant suggestions
+- Avoid generic answers
+"""
 
-Keep it simple and practical.
-""")
-    ])
-
-    chain = prompt | llm
-
-    response = chain.invoke({
-        "user_query": user_query,
-        "plan": plan,
-        "research": formatted_research
-    })
+    response = llm.invoke(prompt)
 
     return f"""
 📊 Final Output

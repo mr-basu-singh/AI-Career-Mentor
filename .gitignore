@@ -1,17 +1,20 @@
-# Environment variables
+# Ignore RAG and data folders
+rag/
+data/
+
+# Ignore vector database
+chroma_db/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment files (VERY IMPORTANT)
 .env
 
 # Virtual environment
 venv/
 aicareervenv/
 
-# Python cache
-__pycache__/
-*.pyc
-
-# VS Code
+# VS Code settings
 .vscode/
-
-# OS files
-.DS_Store
-Thumbs.db
