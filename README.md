@@ -132,8 +132,9 @@ streamlit run src/ui/app.py
 
 ## 🙌 Author
 
-**Kumar Basu Singh**
-B.Tech (EEE) | AI Enthusiast | Developer
+Kumar Basu Singh  
+B.Tech Electrical & Electronics Engineering  
+Agentic AI Developer 
 
 ---
 
